@@ -1,0 +1,59 @@
+module:
+  hugoVersion:
+    extended: true
+    min: "0.162.0"      # per the v3.0.0 release notes (rolling 4-version window); verify
+  imports:
+    - path: github.com/nunocoracao/blowfish/v3
+
+# Everything below is merged into every site that imports lily.
+params:
+  colorScheme: blowfish
+  defaultAppearance: light
+  autoSwitchAppearance: true
+  enableSearch: true            # needs outputs.home JSON in the site config
+  enableCodeCopy: true
+
+  header:
+    layout: basic
+  footer:
+    showMenu: true
+  homepage:
+    layout: profile
+
+  article:
+    showBreadcrumbs: true       # breadcrumbs on posts
+    showTaxonomies: true
+    showReadingTime: true
+    showTableOfContents: true
+  list:
+    showBreadcrumbs: true       # breadcrumbs on section/list pages
+  taxonomy:
+    showTermCount: true         # (verify) key name in your Blowfish version
+
+menus:
+  main:
+    - identifier: posts
+      name: Posts
+      url: /posts/
+      weight: 10
+    - identifier: blog
+      name: Blog
+      url: /blog/
+      weight: 20
+    - identifier: categories
+      name: Categories
+      url: /categories/
+      weight: 30
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 40
+  footer:
+    - identifier: footer-categories
+      name: Categories
+      url: /categories/
+      weight: 10
+    - identifier: footer-tags
+      name: Tags
+      url: /tags/
+      weight: 20
